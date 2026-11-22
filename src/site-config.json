@@ -1,0 +1,30 @@
+{
+  "whatsappNumber": "",
+  "whatsappDefaultMessage": "Olá! Vim pelo site da CDS Sistemas e quero conhecer o sistema para meu comércio.",
+  "phoneDisplay": "",
+  "email": "",
+  "address": "Cariri - Ceará",
+  "instagram": "",
+  "facebook": "",
+  "youtube": "",
+  "linkedin": "",
+  "plans": [
+    {
+      "name": "CDS Gestão",
+      "priceMonthly": 150,
+      "priceAnnual": 150,
+      "tagline": "Gestão comercial integrada para organizar a operação do seu negócio.",
+      "badge": "Plano principal",
+      "features": [
+        "Frente de caixa e vendas",
+        "Cadastro de produtos e controle de estoque",
+        "Compras e Central de Entradas",
+        "Financeiro: contas a pagar e receber",
+        "Cadastro de clientes e crediário",
+        "Rotinas fiscais conforme configuração da empresa"
+      ],
+      "highlight": true,
+      "cta": "Consultar implantação"
+    }
+  ]
+}

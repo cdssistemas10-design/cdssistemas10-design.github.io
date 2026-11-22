@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-950: #040711;
+  --color-cyber-900: #080d1a;
+  --color-cyber-850: #0c1426;
+  --color-cyber-800: #111b33;
+  --color-cyber-700: #1a284c;
+
+  --color-gold-300: #fde047;
+  --color-gold-400: #facc15;
+  --color-gold-500: #eab308;
+  --color-gold-600: #ca8a04;
+  --color-gold-700: #a16207;
+
+  --color-silver-200: #f1f5f9;
+  --color-silver-300: #e2e8f0;
+  --color-silver-400: #cbd5e1;
+  --color-silver-500: #94a3b8;
+
+  --color-neon-blue: #38bdf8;
+  --color-neon-emerald: #10b981;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cyber-950 text-slate-200 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+  }
+  .glass-gold {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.12), rgba(234, 179, 8, 0.02));
+    border: 1px solid rgba(234, 179, 8, 0.25);
+    backdrop-filter: blur(16px);
+  }
+  .text-gold-gradient {
+    background: linear-gradient(110deg, #fff7ed 0%, #fde047 30%, #eab308 65%, #ca8a04 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-silver-gradient {
+    background: linear-gradient(110deg, #ffffff 0%, #e2e8f0 45%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gold-glow {
+    box-shadow: 0 0 35px -5px rgba(234, 179, 8, 0.35);
+  }
+  .gold-ring {
+    box-shadow: 0 0 0 1px rgba(234, 179, 8, 0.35), 0 20px 50px -15px rgba(234, 179, 8, 0.3);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.5deg); }
+}
+.animate-float {
+  animation: floatSmooth 6s ease-in-out infinite;
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+.animate-gold-pulse {
+  animation: pulseGoldGlow 7s ease-in-out infinite;
+}
+
+@keyframes marqueeInfinite {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee-slow {
+  animation: marqueeInfinite 38s linear infinite;
+}
+
+@keyframes circuitGlow {
+  0%, 100% { stroke-dashoffset: 1000; opacity: 0.3; }
+  50% { stroke-dashoffset: 0; opacity: 0.9; }
+}
+.animate-circuit {
+  stroke-dasharray: 200;
+  animation: circuitGlow 8s ease-in-out infinite;
+}
+
+@keyframes popModal {
+  from { opacity: 0; transform: scale(0.95) translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-pop-modal {
+  animation: popModal 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Print styles for simulated thermal receipts */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt, #thermal-receipt * {
+    visibility: visible;
+  }
+  #thermal-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}
