@@ -12,7 +12,6 @@ import RegionCariri from "./components/RegionCariri";
 import TestimonialsFaq from "./components/TestimonialsFaq";
 import { FinalCtaSection, Footer, FloatingWhatsAppWidget } from "./components/CtaFooter";
 import PdvDemo from "./components/PdvDemo";
-import AdminConfig from "./components/AdminConfig";
 import { CyberCanvas } from "./components/CyberCanvas";
 import { SiteConfigProvider } from "./context/SiteConfigContext";
 import { Button, Reveal } from "./components/ui";
@@ -24,7 +23,6 @@ function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: st
 
 function MainApp() {
   const [demoOpen, setDemoOpen] = useState(false);
-  const [adminOpen, setAdminOpen] = useState(false);
   const [whatsAppFallbackUrl, setWhatsAppFallbackUrl] = useState("");
   const [route, setRoute] = useState(window.location.hash.replace(/^#/, "") || "/");
   const handleOpenDemo = () => setDemoOpen(true);
@@ -90,7 +88,7 @@ function MainApp() {
 
   const webFallbackUrl = whatsAppFallbackUrl ? buildWhatsAppWebFallback(whatsAppFallbackUrl) : "";
 
-  return <div className="relative min-h-screen overflow-x-hidden bg-cyber-950 font-sans text-slate-200"><CyberCanvas/><Header onOpenDemo={handleOpenDemo}/><main className="relative z-10">{page}</main><Footer onOpenAdmin={() => setAdminOpen(true)}/><FloatingWhatsAppWidget/><PdvDemo open={demoOpen} onClose={() => setDemoOpen(false)}/><AdminConfig open={adminOpen} onClose={() => setAdminOpen(false)}/>{webFallbackUrl&&<aside role="status" aria-live="polite" className="fixed bottom-4 left-4 z-[140] w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-white/15 bg-cyber-900 p-4 text-sm text-white shadow-2xl"><button type="button" onClick={()=>setWhatsAppFallbackUrl("")} aria-label="Fechar alternativas do WhatsApp" className="absolute right-3 top-2 text-slate-400 hover:text-white">×</button><p className="pr-5 font-bold">Se o WhatsApp não abriu:</p><div className="mt-3 flex flex-wrap gap-2"><a href={whatsAppFallbackUrl} className="rounded-lg border border-emerald-400/40 px-3 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-400/10">Abrir WhatsApp novamente</a><a href={webFallbackUrl} target="_blank" rel="noreferrer" className="rounded-lg bg-emerald-500 px-3 py-2 text-xs font-bold text-cyber-950 hover:bg-emerald-400">Continuar pelo WhatsApp Web</a></div></aside>}</div>;
+  return <div className="relative min-h-screen overflow-x-hidden bg-cyber-950 font-sans text-slate-200"><CyberCanvas/><Header onOpenDemo={handleOpenDemo}/><main className="relative z-10">{page}</main><Footer/><FloatingWhatsAppWidget/><PdvDemo open={demoOpen} onClose={() => setDemoOpen(false)}/>{webFallbackUrl&&<aside role="status" aria-live="polite" className="fixed bottom-4 left-4 z-[140] w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-white/15 bg-cyber-900 p-4 text-sm text-white shadow-2xl"><button type="button" onClick={()=>setWhatsAppFallbackUrl("")} aria-label="Fechar alternativas do WhatsApp" className="absolute right-3 top-2 text-slate-400 hover:text-white">×</button><p className="pr-5 font-bold">Se o WhatsApp não abriu:</p><div className="mt-3 flex flex-wrap gap-2"><a href={whatsAppFallbackUrl} className="rounded-lg border border-emerald-400/40 px-3 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-400/10">Abrir WhatsApp novamente</a><a href={webFallbackUrl} target="_blank" rel="noreferrer" className="rounded-lg bg-emerald-500 px-3 py-2 text-xs font-bold text-cyber-950 hover:bg-emerald-400">Continuar pelo WhatsApp Web</a></div></aside>}</div>;
 }
 
 export default function App() {
