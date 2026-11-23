@@ -87,7 +87,7 @@ const DEFAULT_CONFIG: SiteConfig = {
   heroStat3Value: "360°",
   heroStat3Label: "Gestão do negócio",
   plans: PLANS,
-  products: PRODUCTS,
+  products: PRODUCTS satisfies SiteProduct[],
   cities: CITIES,
   faqs: FAQS,
   testimonials: TESTIMONIALS,
