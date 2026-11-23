@@ -93,7 +93,25 @@ const DEFAULT_CONFIG: SiteConfig = {
   testimonials: TESTIMONIALS,
 };
 
-const BASE_CONFIG: SiteConfig = { ...DEFAULT_CONFIG, ...STATIC_CONFIG };
+function readInitialProducts(value: unknown): SiteProduct[] {
+  if (!Array.isArray(value)) {
+    throw new Error("A configuração inicial contém uma lista de produtos inválida.");
+  }
+  const products: SiteProduct[] = [];
+  for (const product of value) {
+    if (!isProduct(product)) {
+      throw new Error("A configuração inicial contém um produto inválido.");
+    }
+    products.push(product);
+  }
+  return products;
+}
+
+const BASE_CONFIG: SiteConfig = {
+  ...DEFAULT_CONFIG,
+  ...STATIC_CONFIG,
+  products: readInitialProducts(STATIC_CONFIG.products),
+};
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
