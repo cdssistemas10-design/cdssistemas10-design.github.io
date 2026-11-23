@@ -1,30 +1,372 @@
 {
-  "whatsappNumber": "",
+  "whatsappNumber": "5588996255866",
   "whatsappDefaultMessage": "Olá! Vim pelo site da CDS Sistemas e quero conhecer o sistema para meu comércio.",
-  "phoneDisplay": "",
-  "email": "",
+  "phoneDisplay": "(88)9.9625-5866",
+  "email": "cds.sistemas10@gmail.com",
   "address": "Cariri - Ceará",
   "instagram": "",
   "facebook": "",
   "youtube": "",
   "linkedin": "",
+  "heroEyebrow": "TECNOLOGIA PARA O COMÉRCIO DO CARIRI",
+  "heroTitlePrefix": "Inteligência para gerir.",
+  "heroTitleHighlight": "Tecnologia para crescer.",
+  "heroDescription": "Do primeiro produto vendido ao fechamento do caixa, a CDS conecta as partes do seu negócio em uma plataforma de gestão.",
+  "heroStat1Value": "ERP",
+  "heroStat1Label": "Gestão integrada",
+  "heroStat2Value": "PDV",
+  "heroStat2Label": "Frente de caixa integrada",
+  "heroStat3Value": "360°",
+  "heroStat3Label": "Gestão do negócio",
   "plans": [
     {
-      "name": "CDS Gestão",
-      "priceMonthly": 150,
-      "priceAnnual": 150,
-      "tagline": "Gestão comercial integrada para organizar a operação do seu negócio.",
+      "name": "CDS Gestão Gerencial",
+      "priceMonthly": 110,
+      "priceAnnual": 100,
+      "tagline": "Gestão comercial completa para organizar sua empresa, controlar vendas, estoque, financeiro e acompanhar os resultados do negócio em um único sistema. Ideal para empresas que desejam profissionalizar sua gestão sem a necessidade de emissão de documentos fiscais pelo CDS.",
       "badge": "Plano principal",
       "features": [
-        "Frente de caixa e vendas",
-        "Cadastro de produtos e controle de estoque",
-        "Compras e Central de Entradas",
-        "Financeiro: contas a pagar e receber",
-        "Cadastro de clientes e crediário",
-        "Rotinas fiscais conforme configuração da empresa"
+        "Controle completo de vendas e operações comerciais",
+        "PDV para vendas gerenciais",
+        "Cadastro de produtos, clientes e fornecedores",
+        "Controle inteligente de estoque",
+        "Registro de compras e entradas de mercadorias",
+        "Controle de caixa e fechamento diário",
+        "Gestão de contas a pagar e receber",
+        "Controle financeiro e fluxo de caixa",
+        "Relatórios gerenciais de vendas e resultados",
+        "Controle de custos, preços e margens de lucro",
+        "Histórico completo das movimentações",
+        "Cadastro de usuários e controle de permissões",
+        "Dashboard com indicadores do negócio"
       ],
       "highlight": true,
       "cta": "Consultar implantação"
+    },
+    {
+      "name": "CDS Gestão Fiscal e Gerencial",
+      "priceMonthly": 150,
+      "priceAnnual": 140,
+      "tagline": "Tenha o controle completo da sua empresa com gestão comercial, financeira e fiscal integradas. Gerencie vendas, estoque e financeiro enquanto realiza a emissão de documentos fiscais eletrônicos e acompanha suas operações fiscais em um único ambiente.",
+      "badge": "",
+      "features": [
+        "Todos os recursos do CDS Gestão Gerencial",
+        "Emissão de Nota Fiscal Eletrônica (NF-e)",
+        "Emissão de Nota Fiscal de Consumidor Eletrônica (NFC-e)",
+        "Configuração de certificado digital",
+        "Cadastro e configuração tributária de produtos",
+        "Controle de NCM, CFOP, CST e CSOSN",
+        "Transmissão e consulta de documentos fiscais",
+        "Cancelamento de documentos fiscais",
+        "Geração e armazenamento de XML e DANFE",
+        "Gestão de devoluções fiscais",
+        "Central de documentos fiscais",
+        "Central de Entradas de documentos fiscais",
+        "Consulta e acompanhamento de operações na SEFAZ",
+        "Relatórios e acompanhamento fiscal",
+        "Integração entre vendas, estoque e movimentações fiscais"
+      ],
+      "highlight": false,
+      "cta": "Falar com a CDS"
+    },
+    {
+      "name": "CDS Gestão Completa",
+      "priceMonthly": 180,
+      "priceAnnual": 170,
+      "tagline": "A solução mais completa para administrar e expandir sua empresa. Reúna gestão comercial, fiscal, financeira e operacional com recursos avançados de automação, integração e inteligência empresarial. Tenha mais controle, produtividade e informações estratégicas para tomar decisões e crescer.",
+      "badge": "",
+      "features": [
+        "Todos os recursos do CDS Gestão Gerencial e Gestão Fiscal",
+        "Gestão de múltiplos caixas",
+        "Operação integrada em ambiente Cliente/Servidor",
+        "Gerenciamento de múltiplos terminais",
+        "Integração com TEF, conforme homologação",
+        "Integração com PIX e meios de pagamento compatíveis",
+        "Central Inteligente de Entradas",
+        "Automação de processos operacionais",
+        "Gestão avançada de estoque e movimentações",
+        "Relatórios gerenciais avançados",
+        "Indicadores de desempenho empresarial",
+        "Auditoria e rastreabilidade de operações",
+        "Recursos avançados de integração",
+        "Gestão e acompanhamento de operações empresariais",
+        "Acesso aos módulos avançados disponibilizados no pacote"
+      ],
+      "highlight": true,
+      "cta": "Falar com a CDS"
     }
-  ]
+  ],
+  "products": [
+    {
+      "id": 1,
+      "code": "7891000",
+      "barcode": "789100012345",
+      "name": "Arroz Branco Tipo 1 5kg",
+      "price": 24.9,
+      "cost": 18.5,
+      "unit": "UN",
+      "stock": 48,
+      "minStock": 15,
+      "category": "Mercearia"
+    },
+    {
+      "id": 2,
+      "code": "7891001",
+      "barcode": "789100123456",
+      "name": "Feijão Carioca 1kg",
+      "price": 8.49,
+      "cost": 5.8,
+      "unit": "UN",
+      "stock": 6,
+      "minStock": 12,
+      "category": "Mercearia"
+    },
+    {
+      "id": 3,
+      "code": "7891002",
+      "barcode": "789100234567",
+      "name": "Açúcar Cristal Especial 1kg",
+      "price": 4.79,
+      "cost": 3.1,
+      "unit": "UN",
+      "stock": 120,
+      "minStock": 30,
+      "category": "Mercearia"
+    },
+    {
+      "id": 4,
+      "code": "7891003",
+      "barcode": "789100345678",
+      "name": "Café Torrado e Moído 500g",
+      "price": 17.9,
+      "cost": 12.9,
+      "unit": "UN",
+      "stock": 18,
+      "minStock": 10,
+      "category": "Mercearia"
+    },
+    {
+      "id": 5,
+      "code": "7891004",
+      "barcode": "789100456789",
+      "name": "Óleo de Soja Refinado 900ml",
+      "price": 6.89,
+      "cost": 4.9,
+      "unit": "UN",
+      "stock": 54,
+      "minStock": 20,
+      "category": "Mercearia"
+    },
+    {
+      "id": 6,
+      "code": "7891005",
+      "barcode": "789100567890",
+      "name": "Refrigerante Guaraná 2L",
+      "price": 9.99,
+      "cost": 6.5,
+      "unit": "UN",
+      "stock": 64,
+      "minStock": 15,
+      "category": "Bebidas"
+    },
+    {
+      "id": 7,
+      "code": "7891006",
+      "barcode": "789100678901",
+      "name": "Água Mineral s/ Gás 500ml",
+      "price": 2.5,
+      "cost": 0.9,
+      "unit": "UN",
+      "stock": 210,
+      "minStock": 48,
+      "category": "Bebidas"
+    },
+    {
+      "id": 8,
+      "code": "7891007",
+      "barcode": "789100789012",
+      "name": "Cerveja Pilsen Lata 350ml",
+      "price": 3.99,
+      "cost": 2.7,
+      "unit": "UN",
+      "stock": 180,
+      "minStock": 36,
+      "category": "Bebidas"
+    },
+    {
+      "id": 9,
+      "code": "7891008",
+      "barcode": "200000000001",
+      "name": "Banana Prata Selecionada",
+      "price": 6.9,
+      "cost": 3.8,
+      "unit": "KG",
+      "stock": 32,
+      "minStock": 10,
+      "category": "Hortifruti"
+    },
+    {
+      "id": 10,
+      "code": "7891009",
+      "barcode": "200000000002",
+      "name": "Tomate Italiano Fresco",
+      "price": 8.3,
+      "cost": 4.9,
+      "unit": "KG",
+      "stock": 4.2,
+      "minStock": 10,
+      "category": "Hortifruti"
+    },
+    {
+      "id": 11,
+      "code": "7891010",
+      "barcode": "200000000003",
+      "name": "Batata Inglesa Lisa",
+      "price": 5.9,
+      "cost": 3.2,
+      "unit": "KG",
+      "stock": 18.5,
+      "minStock": 15,
+      "category": "Hortifruti"
+    },
+    {
+      "id": 12,
+      "code": "7891011",
+      "barcode": "200000000004",
+      "name": "Queijo Mussarela Fatiado",
+      "price": 42,
+      "cost": 29,
+      "unit": "KG",
+      "stock": 11.4,
+      "minStock": 8,
+      "category": "Frios"
+    },
+    {
+      "id": 13,
+      "code": "7891012",
+      "barcode": "200000000005",
+      "name": "Presunto Cozido Especial",
+      "price": 32.5,
+      "cost": 21,
+      "unit": "KG",
+      "stock": 8.7,
+      "minStock": 6,
+      "category": "Frios"
+    },
+    {
+      "id": 14,
+      "code": "7891013",
+      "barcode": "789101312345",
+      "name": "Detergente Líquido Neutro 500ml",
+      "price": 2.99,
+      "cost": 1.6,
+      "unit": "UN",
+      "stock": 85,
+      "minStock": 24,
+      "category": "Limpeza"
+    },
+    {
+      "id": 15,
+      "code": "7891014",
+      "barcode": "789101423456",
+      "name": "Sabão em Pó Concentrado 1kg",
+      "price": 14.9,
+      "cost": 9.8,
+      "unit": "UN",
+      "stock": 3,
+      "minStock": 12,
+      "category": "Limpeza"
+    },
+    {
+      "id": 16,
+      "code": "7891015",
+      "barcode": "789101534567",
+      "name": "Água Sanitária Tradicional 1L",
+      "price": 3.89,
+      "cost": 2.1,
+      "unit": "UN",
+      "stock": 45,
+      "minStock": 15,
+      "category": "Limpeza"
+    }
+  ],
+  "cities": [
+    {
+      "name": "Juazeiro do Norte",
+      "state": "CE",
+      "status": "Atendimento Presencial & Suporte Rápido"
+    },
+    {
+      "name": "Crato",
+      "state": "CE",
+      "status": "Atendimento Presencial & Suporte Rápido"
+    },
+    {
+      "name": "Barbalha",
+      "state": "CE",
+      "status": "Atendimento Presencial & Suporte Rápido"
+    },
+    {
+      "name": "Caririaçu",
+      "state": "CE",
+      "status": "Implantação Presencial & Suporte"
+    },
+    {
+      "name": "Missão Velha",
+      "state": "CE",
+      "status": "Implantação Presencial & Suporte"
+    },
+    {
+      "name": "Lavras da Mangabeira",
+      "state": "CE",
+      "status": "Implantação Presencial & Suporte"
+    },
+    {
+      "name": "Brejo Santo",
+      "state": "CE",
+      "status": "Atendimento Regional Cariri"
+    },
+    {
+      "name": "Mauriti",
+      "state": "CE",
+      "status": "Atendimento Regional Cariri"
+    },
+    {
+      "name": "Farias Brito",
+      "state": "CE",
+      "status": "Atendimento Regional Cariri"
+    },
+    {
+      "name": "Iguatu",
+      "state": "CE",
+      "status": "Atendimento Centro-Sul & Cariri"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Quais áreas do comércio o CDS Sistemas ajuda a controlar?",
+      "a": "O CDS reúne rotinas de frente de caixa, produtos e estoque, compras e entradas, clientes, financeiro e documentos fiscais. A configuração é ajustada conforme o tipo e a operação de cada empresa."
+    },
+    {
+      "q": "O sistema emite NFC-e e NF-e?",
+      "a": "O CDS possui módulos e rotinas para documentos fiscais eletrônicos, incluindo NFC-e e NF-e. A emissão depende da configuração fiscal da empresa, certificado digital, credenciamento e regras aplicáveis."
+    },
+    {
+      "q": "Consigo acompanhar compras e notas de fornecedores?",
+      "a": "A Central Inteligente de Entradas organiza o fluxo de documentos de fornecedores para consulta, revisão e processamento das entradas. O modo de operação pode ser assistido ou automático conforme a configuração."
+    },
+    {
+      "q": "O CDS controla estoque e cadastro de produtos?",
+      "a": "Sim. O sistema possui cadastro e listagem de produtos, movimentações de estoque, compras, relatórios e ferramentas de apoio para conferência e reposição."
+    },
+    {
+      "q": "Posso controlar contas a pagar, receber e crediário?",
+      "a": "O módulo Financeiro reúne contas a pagar, contas a receber, dívidas por cliente, condições de pagamento, histórico e relatórios. As rotinas são apresentadas conforme o perfil de acesso."
+    },
+    {
+      "q": "Como funciona a implantação?",
+      "a": "A implantação começa pelo levantamento da operação, configuração do sistema, preparação dos cadastros e treinamento da equipe. Entre em contato para avaliarmos o cenário do seu comércio."
+    }
+  ],
+  "testimonials": []
 }
