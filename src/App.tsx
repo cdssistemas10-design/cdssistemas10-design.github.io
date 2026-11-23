@@ -12,10 +12,10 @@ import RegionCariri from "./components/RegionCariri";
 import TestimonialsFaq from "./components/TestimonialsFaq";
 import { FinalCtaSection, Footer, FloatingWhatsAppWidget } from "./components/CtaFooter";
 import PdvDemo from "./components/PdvDemo";
+import AdminConfig from "./components/AdminConfig";
 import { CyberCanvas } from "./components/CyberCanvas";
 import { SiteConfigProvider } from "./context/SiteConfigContext";
 import { Button, Reveal } from "./components/ui";
-import { buildWhatsAppWebFallback, launchWhatsApp } from "./utils/whatsapp";
 
 function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
   return <section className="container-x pb-2 pt-32 sm:pt-36"><Reveal><p className="text-xs font-black uppercase tracking-[.22em] text-gold-300">{eyebrow}</p><h1 className="mt-4 max-w-4xl text-3xl font-black text-white sm:text-5xl">{title}</h1><p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-300">{description}</p></Reveal></section>;
@@ -23,7 +23,7 @@ function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: st
 
 function MainApp() {
   const [demoOpen, setDemoOpen] = useState(false);
-  const [whatsAppFallbackUrl, setWhatsAppFallbackUrl] = useState("");
+  const [adminOpen, setAdminOpen] = useState(false);
   const [route, setRoute] = useState(window.location.hash.replace(/^#/, "") || "/");
   const handleOpenDemo = () => setDemoOpen(true);
 
@@ -34,28 +34,6 @@ function MainApp() {
     };
     window.addEventListener("hashchange", syncRoute);
     return () => window.removeEventListener("hashchange", syncRoute);
-  }, []);
-
-  useEffect(() => {
-    const showFallback = (event: Event) => {
-      const { appUrl } = (event as CustomEvent<{ appUrl: string }>).detail;
-      setWhatsAppFallbackUrl(buildWhatsAppWebFallback(appUrl) === "#contato" ? "" : appUrl);
-    };
-    const launchFromLink = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Element)) return;
-      const link = target.closest<HTMLAnchorElement>('a[href^="whatsapp://send?"]');
-      if (!link) return;
-      event.preventDefault();
-      launchWhatsApp(link.href);
-    };
-
-    window.addEventListener("whatsapp:launch", showFallback);
-    document.addEventListener("click", launchFromLink, true);
-    return () => {
-      window.removeEventListener("whatsapp:launch", showFallback);
-      document.removeEventListener("click", launchFromLink, true);
-    };
   }, []);
 
   const page = (() => {
@@ -86,9 +64,7 @@ function MainApp() {
     }
   })();
 
-  const webFallbackUrl = whatsAppFallbackUrl ? buildWhatsAppWebFallback(whatsAppFallbackUrl) : "";
-
-  return <div className="relative min-h-screen overflow-x-hidden bg-cyber-950 font-sans text-slate-200"><CyberCanvas/><Header onOpenDemo={handleOpenDemo}/><main className="relative z-10">{page}</main><Footer/><FloatingWhatsAppWidget/><PdvDemo open={demoOpen} onClose={() => setDemoOpen(false)}/>{webFallbackUrl&&<aside role="status" aria-live="polite" className="fixed bottom-4 left-4 z-[140] w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-white/15 bg-cyber-900 p-4 text-sm text-white shadow-2xl"><button type="button" onClick={()=>setWhatsAppFallbackUrl("")} aria-label="Fechar alternativas do WhatsApp" className="absolute right-3 top-2 text-slate-400 hover:text-white">×</button><p className="pr-5 font-bold">Se o WhatsApp não abriu:</p><div className="mt-3 flex flex-wrap gap-2"><a href={whatsAppFallbackUrl} className="rounded-lg border border-emerald-400/40 px-3 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-400/10">Abrir WhatsApp novamente</a><a href={webFallbackUrl} target="_blank" rel="noreferrer" className="rounded-lg bg-emerald-500 px-3 py-2 text-xs font-bold text-cyber-950 hover:bg-emerald-400">Continuar pelo WhatsApp Web</a></div></aside>}</div>;
+  return <div className="relative min-h-screen overflow-x-hidden bg-cyber-950 font-sans text-slate-200"><CyberCanvas/><Header onOpenDemo={handleOpenDemo}/><main className="relative z-10">{page}</main><Footer onOpenAdmin={() => setAdminOpen(true)}/><FloatingWhatsAppWidget/><PdvDemo open={demoOpen} onClose={() => setDemoOpen(false)}/><AdminConfig open={adminOpen} onClose={() => setAdminOpen(false)}/></div>;
 }
 
 export default function App() {

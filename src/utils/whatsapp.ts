@@ -35,8 +35,7 @@ export function buildWhatsAppWebFallback(appUrl: string): string {
     if (url.protocol !== "whatsapp:" || url.hostname !== "send") return "#contato";
     const phone = url.searchParams.get("phone") || "";
     if (!isValidWhatsAppNumber(phone)) return "#contato";
-    const message = url.searchParams.get("text") || "";
-    return buildWhatsAppWebLink(phone, message);
+    return buildWhatsAppWebLink(phone, url.searchParams.get("text") || "");
   } catch {
     return "#contato";
   }

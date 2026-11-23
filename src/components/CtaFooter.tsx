@@ -3,7 +3,6 @@ import { CdsLogo } from "./CdsLogo";
 import { Button, Reveal } from "./ui";
 import { useSiteConfig } from "../context/SiteConfigContext";
 import { Sound } from "../utils/sound";
-import { launchWhatsApp } from "../utils/whatsapp";
 
 export function FinalCtaSection({ onOpenDemo }: { onOpenDemo: () => void }) {
   const { config, getWhatsAppUrl } = useSiteConfig();
@@ -24,7 +23,9 @@ export function FinalCtaSection({ onOpenDemo }: { onOpenDemo: () => void }) {
     const message = `Olá! Meu nome é ${formData.name}, sou do comércio "${formData.business}" em ${formData.city} (Segmento: ${formData.segment}) e gostaria de agendar uma demonstração do sistema CDS Sistemas.`;
     const url = getWhatsAppUrl(message);
 
-    launchWhatsApp(url);
+    setTimeout(() => {
+      window.open(url, "_blank");
+    }, 600);
   };
 
   return (
@@ -182,10 +183,19 @@ export function FinalCtaSection({ onOpenDemo }: { onOpenDemo: () => void }) {
   );
 }
 
-export function Footer() {
+export function Footer({ onOpenAdmin }: { onOpenAdmin: () => void }) {
   const { config, getWhatsAppUrl } = useSiteConfig();
 
   return (
+    <>
+    <button
+      type="button"
+      onClick={onOpenAdmin}
+      className="fixed bottom-[calc(env(safe-area-inset-bottom)+11rem)] right-3 z-[45] rounded-full border border-gold-500/40 bg-cyber-950 px-3 py-2 text-[10px] font-bold text-slate-200 shadow-xl shadow-black/50 backdrop-blur-sm transition hover:border-gold-400 hover:text-gold-300 sm:right-5"
+      aria-label="Abrir configuração do site"
+    >
+      ⚙ Configuração do site
+    </button>
     <footer className="border-t border-gold-500/20 bg-cyber-950 pt-16 pb-12">
       <div className="container-x grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         {/* Brand Column with exact logo */}
@@ -252,6 +262,7 @@ export function Footer() {
         <p className="text-[10px] text-slate-500">© {new Date().getFullYear()} CDS Sistemas. Todos os direitos reservados.</p>
       </div>
     </footer>
+    </>
   );
 }
 
