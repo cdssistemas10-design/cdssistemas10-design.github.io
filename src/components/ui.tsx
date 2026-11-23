@@ -5,14 +5,6 @@ import { Sound } from "../utils/sound";
 export const brl = (v: number) =>
   v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-export const buildWhatsAppLink = (message?: string) => {
-  const defaultMsg = "Olá! Vim pelo site da CDS Sistemas e quero conhecer o sistema de PDV e Gestão para meu comércio.";
-  const text = encodeURIComponent(message || defaultMsg);
-  return `https://wa.me/5588999999999?text=${text}`;
-};
-
-export const WHATSAPP_DEFAULT = buildWhatsAppLink();
-
 export function Reveal({
   children,
   delay = 0,

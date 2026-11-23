@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Reveal, SectionHeader, Button, buildWhatsAppLink } from "./ui";
+import { Reveal, SectionHeader, Button } from "./ui";
+import { useSiteConfig } from "../context/SiteConfigContext";
 import { Sound } from "../utils/sound";
 import { cn } from "../utils/cn";
 
 export function HardwareSection() {
+  const { getWhatsAppUrl } = useSiteConfig();
   const hardwareCategories = [
     {
       id: "balancas",
@@ -119,7 +121,7 @@ export function HardwareSection() {
                     <Button
                       variant="gold"
                       size="sm"
-                      href={buildWhatsAppLink(`Olá! Gostaria de confirmar se meu equipamento (${selected.name}) é compatível com o sistema da CDS Sistemas.`)}
+                      href={getWhatsAppUrl(`Olá! Gostaria de confirmar se meu equipamento (${selected.name}) é compatível com o sistema da CDS Sistemas.`)}
                     >
                       Consultar Meu Equipamento
                     </Button>

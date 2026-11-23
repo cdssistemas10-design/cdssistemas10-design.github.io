@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { PRODUCTS, PLANS, CITIES, FAQS, TESTIMONIALS, type Product } from "../data";
 import STATIC_CONFIG from "../site-config.json";
+import { buildWhatsAppAppLink } from "../utils/whatsapp";
 
 export interface PlanConfig {
   name: string;
@@ -109,9 +110,10 @@ export const SiteConfigProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const getWhatsAppUrl = (customMessage?: string) => {
-    const rawNumber = config.whatsappNumber.replace(/\D/g, "");
-    const text = encodeURIComponent(customMessage || config.whatsappDefaultMessage);
-    return rawNumber ? `https://wa.me/${rawNumber}?text=${text}` : "#contato";
+    return buildWhatsAppAppLink(
+      config.whatsappNumber,
+      customMessage || config.whatsappDefaultMessage,
+    );
   };
 
   const value = useMemo(() => ({ config, updateConfig, resetConfig, getWhatsAppUrl }), [config]);

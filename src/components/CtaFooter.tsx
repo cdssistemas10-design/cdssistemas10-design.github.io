@@ -3,6 +3,7 @@ import { CdsLogo } from "./CdsLogo";
 import { Button, Reveal } from "./ui";
 import { useSiteConfig } from "../context/SiteConfigContext";
 import { Sound } from "../utils/sound";
+import { launchWhatsApp } from "../utils/whatsapp";
 
 export function FinalCtaSection({ onOpenDemo }: { onOpenDemo: () => void }) {
   const { config, getWhatsAppUrl } = useSiteConfig();
@@ -23,9 +24,7 @@ export function FinalCtaSection({ onOpenDemo }: { onOpenDemo: () => void }) {
     const message = `Olá! Meu nome é ${formData.name}, sou do comércio "${formData.business}" em ${formData.city} (Segmento: ${formData.segment}) e gostaria de agendar uma demonstração do sistema CDS Sistemas.`;
     const url = getWhatsAppUrl(message);
 
-    setTimeout(() => {
-      window.open(url, "_blank");
-    }, 600);
+    launchWhatsApp(url);
   };
 
   return (
@@ -187,6 +186,15 @@ export function Footer({ onOpenAdmin }: { onOpenAdmin: () => void }) {
   const { config, getWhatsAppUrl } = useSiteConfig();
 
   return (
+    <>
+    <button
+      type="button"
+      onClick={onOpenAdmin}
+      className="fixed bottom-[calc(env(safe-area-inset-bottom)+11rem)] right-3 z-[45] rounded-full border border-gold-500/40 bg-cyber-950 px-3 py-2 text-[10px] font-bold text-slate-200 shadow-xl shadow-black/50 backdrop-blur-sm transition hover:border-gold-400 hover:text-gold-300 sm:right-5"
+      aria-label="Abrir configuração do site"
+    >
+      ⚙ Configuração do site
+    </button>
     <footer className="border-t border-gold-500/20 bg-cyber-950 pt-16 pb-12">
       <div className="container-x grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         {/* Brand Column with exact logo */}
@@ -251,28 +259,29 @@ export function Footer({ onOpenAdmin }: { onOpenAdmin: () => void }) {
 
       <div className="container-x mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
         <p className="text-[10px] text-slate-500">© {new Date().getFullYear()} CDS Sistemas. Todos os direitos reservados.</p>
-        <button onClick={onOpenAdmin} className="rounded-lg border border-white/10 px-3 py-2 text-[10px] font-semibold text-slate-400 hover:border-gold-500/40 hover:text-gold-300">⚙ Configuração do site</button>
       </div>
     </footer>
+    </>
   );
 }
 
 export function FloatingWhatsAppWidget() {
   const { config, getWhatsAppUrl } = useSiteConfig();
-  if (!config.whatsappNumber) return null;
 
   return (
     <a
       href={getWhatsAppUrl()}
-      target="_blank"
+      target={config.whatsappNumber ? "_blank" : undefined}
       rel="noreferrer"
       onClick={() => Sound.click()}
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#25D366] py-3 pl-3.5 pr-4.5 font-black text-[#042814] shadow-2xl shadow-black/80 transition-all duration-300 hover:scale-105 hover:brightness-110"
+      className="group fixed bottom-[calc(env(safe-area-inset-bottom)+6.25rem)] right-3 z-40 flex items-center gap-2 rounded-full bg-[#25D366] py-2 pl-2 pr-3 font-black text-[#042814] shadow-2xl shadow-black/80 transition-all duration-300 hover:scale-105 hover:brightness-110 sm:right-5 sm:gap-3 sm:py-2.5 sm:pr-4"
       aria-label="Falar no WhatsApp da CDS Sistemas"
     >
-      <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
-        <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2z" />
-      </svg>
+      <img
+        src={`${import.meta.env.BASE_URL}images/whatsapp-logo.png`}
+        alt=""
+        className="h-9 w-9 shrink-0 rounded-full object-contain sm:h-10 sm:w-10"
+      />
       <div className="hidden sm:block text-left leading-tight">
         <p className="text-xs font-black">Falar no WhatsApp</p>
         <p className="text-[10px] font-semibold text-emerald-950">Atendimento no Cariri</p>
